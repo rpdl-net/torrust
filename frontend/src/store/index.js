@@ -12,7 +12,7 @@ export default new Vuex.Store({
         categoryFilters: [],
         settings: {
             website: {
-                name: "Torrust"
+                name: "dl.rpdl.net"
             },
             tracker: {
                 url: "",
