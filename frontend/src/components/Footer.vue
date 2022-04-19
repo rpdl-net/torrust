@@ -5,8 +5,8 @@
 <!--        <a class="hover:text-slate-400" href="">Terms of Service</a>-->
 <!--        <p class="sm:ml-4 sm:pl-4 sm:border-l sm:border-slate-200/5"><a class="hover:text-slate-400" href="">Privacy Policy</a></p>-->
 <!--      </div>-->
-      <a class="hover:text-white transition duration-200" href="https://github.com/torrust/torrust">Powered by Torrust</a>
-      <a class="ml-2 pl-2 border-l border-slate-600 hover:text-white transition duration-200" href="https://nautilus-cyberneering.de">Nautilus Cyberneering GmbH</a>
+      <a class="hover:text-white transition duration-200" href="https://rpdl.net/faq">FAQ</a>
+      <a class="ml-2 pl-2 border-l border-slate-600 hover:text-white transition duration-200" href="https://rpdl.net/donate">Donate</a>
     </div>
   </div>
 </template>
