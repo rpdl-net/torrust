@@ -167,6 +167,10 @@ export default {
       })
     },
     downloadTorrent() {
+        if(!this.$store.getters.isLoggedIn){
+            this.$store.dispatch('openAuthModal');
+            return;
+      }
       HttpService.getBlob(`/torrent/download/${this.torrent.torrent_id}`, (res) => {
         const url = window.URL.createObjectURL(new Blob([res.data]));
         const link = document.createElement('a');
