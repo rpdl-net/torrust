@@ -47,7 +47,7 @@
           </li>
         </ul>
       </li>
-      <li class="mt-6">
+      <li class="mt-12">
         <h3 class="py-2 text-slate-400 font-semibold">Resources</h3>
         <ul>
           <button @click="this.window.location='https://rpdl.net/news/'">
