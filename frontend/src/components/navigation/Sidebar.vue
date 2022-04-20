@@ -47,18 +47,12 @@
           </li>
         </ul>
       </li>
-      <li class="mt-12">
+      <li class="mt-10">
         <h3 class="py-2 text-slate-400 font-semibold">Resources</h3>
         <ul>
-          <button @click="this.window.location='https://rpdl.net/news/'">
-            <span>News</span>
-          </button>
-          <button @click="this.window.location='https://rpdl.net/faq/'">
-            <span>Frequently Asked Questions</span>
-          </button>
-          <button @click="this.window.location='https://rpdl.net/tools/'">
-            <span>Third Party Tools</span>
-          </button>
+          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/news" target="_blank">News</a><br>
+          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/faq" target="_blank">FAQ</a><br>
+          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/tools" target="_blank">Tools</a>
         </ul>
       </li>
     </ul>
