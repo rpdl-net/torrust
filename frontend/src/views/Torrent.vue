@@ -138,7 +138,7 @@ export default {
         this.torrent = res.data.data;
         this.loading = false;
         if(download){
-          downloadTorrent();
+          this.downloadTorrent();
         }
         // this.updateUrlWithTitle();
       }).catch(() => {
