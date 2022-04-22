@@ -1,4 +1,4 @@
-# STAGING BRANCH
+## STAGING BRANCH
 
 # Torrust
 ![Test](https://github.com/torrust/torrust/actions/workflows/test.yml/badge.svg)
