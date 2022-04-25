@@ -40,7 +40,7 @@ export default {
       results: []
     },
     currentPage: 1,
-    pageSize: 20,
+    pageSize: 50,
   }),
   methods: {
     loadTorrents(page) {
@@ -72,7 +72,7 @@ export default {
     updateSorting(sorting) {
       this.sorting = sorting;
       this.loadTorrents(this.currentPage);
-    }
+    },
   },
   computed: {
     ...mapState(['categoryFilters']),
