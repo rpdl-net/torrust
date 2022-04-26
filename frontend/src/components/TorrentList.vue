@@ -110,8 +110,7 @@ export default {
       //this.$emit('update:sorting', sort);
     },
     newWindow(link, event) {
-      const handle = window.open(this.$router.resolve(link).href, "_blank");
-      handle.blur();
+      window.open(this.$router.resolve(link).href, "_blank");
       window.focus();
     },
   }
