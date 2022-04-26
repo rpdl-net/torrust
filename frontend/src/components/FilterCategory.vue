@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block text-left" v-click-outside="() => (dropdownOpened = false)">
+  <div class="relative inline-block text-left" style="margin-right: 10px;" v-click-outside="() => (dropdownOpened = false)">
     <button class="filter relative" @click="dropdownOpened = !dropdownOpened">
       <AdjustmentsIcon size="16" class="mr-1 opacity-50" />
       Categories
