@@ -27,7 +27,7 @@
       <li class="nav">
         <button @click="goTo('/torrents/popular')" :class="{ 'active': $route.params.sorting === 'popular' }">
           <FireIcon class="h-5 w-5 opacity-50" />
-          <span class="ml-2">Biggest PP</span>
+          <span class="ml-2">Most Popular</span>
         </button>
       </li>
       <li class="nav">
