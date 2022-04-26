@@ -26,7 +26,7 @@
               <tr
                   v-for="(torrent, index) in torrents" :key="index"
                   
-                  @click.left.exact="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
+                  @click.left.exact.prevent="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
                   @click.middle.prevent="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
                   @click.left.ctrl.prevent="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
                   
