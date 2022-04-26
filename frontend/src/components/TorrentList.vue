@@ -25,8 +25,8 @@
             <tbody class="divide-y divide-slate-800 text-slate-400">
               <tr
                   v-for="(torrent, index) in torrents" :key="index"
-                  @click.left="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
-                  @click.middle="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
+                  @click.left.exact="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
+                  @click.middle.prevent="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
                   class="duration-200"
               >
                 <td>
@@ -108,9 +108,6 @@ export default {
       //this.$emit('update:sorting', sort);
     },
     newWindow(link, event) {
-      if(event){
-        event.preventDefault();
-      }
       window.open(this.$router.resolve(link).href)
     },
   }
