@@ -73,6 +73,10 @@ export default {
       this.sorting = sorting;
       this.loadTorrents(this.currentPage);
     },
+    updatePageSize(pageSize) {
+      this.pageSize = pageSize;
+      this.loadTorrents(this.currentPage);
+    },
   },
   computed: {
     ...mapState(['categoryFilters']),
