@@ -6,7 +6,7 @@
     </div>
     <div class="flex flex-row">
       <FilterCategory />
-      <ChangePageSize :update-page-size="updatePageSize" />
+      <PageSize :update-page-size="updatePageSize" />
 <!--      <button disabled class="filter ml-2">-->
 <!--        <FilterIcon size="16" class="mr-1 opacity-50" />-->
 <!--        Filters-->
@@ -26,11 +26,11 @@ import {mapState} from "vuex";
 import Breadcrumb from "../components/Breadcrumb.vue";
 import { AdjustmentsIcon, FilterIcon } from "@vue-hero-icons/outline";
 import FilterCategory from "../components/FilterCategory.vue";
-import ChangePageSize from "../components/PageSize.vue";
+import PageSize from "../components/PageSize.vue";
 
 export default {
   name: "Torrents",
-  components: {FilterCategory, Pagination, TorrentList, Breadcrumb, AdjustmentsIcon, FilterIcon, ChangePageSize},
+  components: {FilterCategory, Pagination, TorrentList, Breadcrumb, AdjustmentsIcon, FilterIcon, PageSize},
   data: () => ({
     sorting: {
       name: 'uploaded',
