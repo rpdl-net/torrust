@@ -50,9 +50,21 @@
       <li class="mt-10">
         <h3 class="py-2 text-slate-400 font-semibold">Resources</h3>
         <ul>
-          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/news" target="_blank">News</a><br>
-          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/faq" target="_blank">FAQ</a><br>
-          <a class="py-2 text-slate-400 hover:text-white transition duration-200" href="https://rpdl.net/tools" target="_blank">Tools</a>
+          <li>
+            <button @click="goToFullURL('https://rpdl.net/news/')">
+              <span>News</span>
+            </button>
+          </li>
+          <li>
+            <button @click="goToFullURL('https://rpdl.net/faq/')">
+              <span>FAQ</span>
+            </button>
+          </li>
+          <li>
+            <button @click="goToFullURL('https://rpdl.net/tools/')">
+              <span>Third Party Tools</span>
+            </button>
+          </li>
         </ul>
       </li>
     </ul>
@@ -100,7 +112,10 @@ export default {
       if (this.$route.path !== url) {
         this.$router.push(url)
       }
-    }
+    },
+    goToFullURL(url){
+      window.open(url);
+    },
   },
 }
 </script>
