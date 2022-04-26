@@ -6,7 +6,7 @@
     </button>
     <div class="origin-top-left absolute left-0 mt-2 z-10" :class="{hidden: !dropdownOpened}">
       <div class="py-2 px-2 w-48 flex flex-col bg-slate-800 text-sm rounded-md shadow-lg">
-        <ul v-if="$route.name === 'Browse Torrents'" id="category-filters" class="">
+        <ul v-if="$route.name === 'Browse Torrents'" id="page-sizes" class="">
           <li v-for="size in pageSizes"
               @click="updateSize(size)"
               class="cursor-pointer text-slate-400 hover:text-white"
