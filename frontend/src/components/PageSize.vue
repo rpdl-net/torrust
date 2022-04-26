@@ -13,6 +13,9 @@
               :key="size">
             <span class="">{{ size }}</span>
           </li>
+          <li>
+              Test
+          </li>
         </ul>
       </div>
     </div>
