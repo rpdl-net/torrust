@@ -10,6 +10,7 @@
 <!--        <FilterIcon size="16" class="mr-1 opacity-50" />-->
 <!--        Filters-->
 <!--      </button>-->
+      <UpdatePageSize />
     </div>
     <TorrentList class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
     <Pagination v-if="torrents.results.length > 0" :current-page.sync="currentPage" :total-pages="totalPages" :total-results="torrents.total" :page-size="pageSize" />
@@ -25,10 +26,11 @@ import {mapState} from "vuex";
 import Breadcrumb from "../components/Breadcrumb.vue";
 import { AdjustmentsIcon, FilterIcon } from "@vue-hero-icons/outline";
 import FilterCategory from "../components/FilterCategory.vue";
+import UpdatePageSize from "../components/PageSize.vue";
 
 export default {
   name: "Torrents",
-  components: {FilterCategory, Pagination, TorrentList, Breadcrumb, AdjustmentsIcon, FilterIcon},
+  components: {FilterCategory, Pagination, TorrentList, Breadcrumb, AdjustmentsIcon, FilterIcon, UpdatePageSize},
   data: () => ({
     sorting: {
       name: 'uploaded',
