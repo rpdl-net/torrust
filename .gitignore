@@ -1,4 +1,6 @@
 .idea
+package-lock.json
+backend/package-lock.json
 
 /frontend/node_modules
 /frontend/dist
