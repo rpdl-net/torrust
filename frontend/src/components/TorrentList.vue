@@ -25,7 +25,8 @@
             <tbody class="divide-y divide-slate-800 text-slate-400">
               <tr
                   v-for="(torrent, index) in torrents" :key="index"
-                  @click="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
+                  @click.left="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
+                  @click.middle="window.open($router.resolve({name: `/torrent/${torrent.torrent_id.toString()}`}), '_blank')"
                   class="duration-200"
               >
                 <td>
