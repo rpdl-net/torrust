@@ -27,6 +27,8 @@
                   v-for="(torrent, index) in torrents" :key="index"
                   @click.left.exact="$router.push(`/torrent/${torrent.torrent_id.toString()}`)"
                   @click.middle.prevent="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
+                  @click.left.ctrl.prevent="e => newWindow(`/torrent/${torrent.torrent_id.toString()}`, e)"
+                  
                   class="duration-200"
               >
                 <td>
@@ -108,7 +110,9 @@ export default {
       //this.$emit('update:sorting', sort);
     },
     newWindow(link, event) {
-      window.open(this.$router.resolve(link).href, "_blank")
+      const handle = window.open(this.$router.resolve(link).href, "_blank");
+      handle.blur();
+      window.focus();
     },
   }
 }
