@@ -27,6 +27,9 @@ import {mapState} from "vuex";
 export default {
   name: "ChangePageSize",
   components: {UserIcon, AdjustmentsIcon},
+  props: {
+      updatePageSize: Function
+  },
   data: () => ({
     dropdownOpened: false,
     pageSizes: [25,50,100,200]
