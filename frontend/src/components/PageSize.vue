@@ -25,7 +25,7 @@ import { AdjustmentsIcon } from '@vue-hero-icons/solid'
 import {mapState} from "vuex";
 
 export default {
-  name: "UpdatePageSize",
+  name: "ChangePageSize",
   components: {UserIcon, AdjustmentsIcon},
   data: () => ({
     dropdownOpened: false,
