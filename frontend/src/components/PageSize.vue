@@ -8,13 +8,10 @@
       <div class="py-2 px-2 w-48 flex flex-col bg-slate-800 text-sm rounded-md shadow-lg">
         <ul v-if="$route.name === 'Browse Torrents'" id="category-filters" class="">
           <li v-for="size in pageSizes"
-              @click="updatePageSize(size)"
+              @click="updateSize(size)"
               class="cursor-pointer text-slate-400 hover:text-white"
               :key="size">
             <span class="">{{ size }}</span>
-          </li>
-          <li>
-              Test
           </li>
         </ul>
       </div>
@@ -41,6 +38,12 @@ export default {
     ...mapState({
       user: state => state.auth.user
     })
+  },
+  methods: {
+      updateSize(size) {
+          this.updatePageSize(size);
+          this.dropdownOpened = false;
+      }
   }
 }
 </script>

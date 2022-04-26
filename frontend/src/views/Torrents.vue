@@ -7,10 +7,6 @@
     <div class="flex flex-row">
       <FilterCategory />
       <ChangePageSize :update-page-size="updatePageSize" />
-      <button disabled class="filter ml-2">
-        <!-- <FilterIcon size="16" class="mr-1 opacity-50" /> -->
-        Filters
-      </button>
     </div>
     <TorrentList class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
     <Pagination v-if="torrents.results.length > 0" :current-page.sync="currentPage" :total-pages="totalPages" :total-results="torrents.total" :page-size="pageSize" />
