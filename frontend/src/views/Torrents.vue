@@ -8,7 +8,7 @@
       <FilterCategory />
       <ChangePageSize :update-page-size="updatePageSize" />
     </div>
-    <TorrentList class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
+    <TorrentList id="tList" class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
     <Pagination v-if="torrents.results.length > 0" :current-page.sync="currentPage" :total-pages="totalPages" :total-results="torrents.total" :page-size="pageSize" />
     <div v-else class="py-6 text-slate-400">This category has no results.</div>
   </div>
@@ -97,6 +97,7 @@ export default {
     },
     currentPage(newPage) {
       this.loadTorrents(newPage, this.sorting);
+      document.getElementById("tList").ScrollIntoView({behavior: "smooth"});
     },
     categoryFilters() {
       this.loadTorrents(this.currentPage, this.sorting);
