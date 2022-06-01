@@ -45,13 +45,13 @@
             1
           </button>
           <template v-if="currentPage <= 4">
-            <button v-for="i in 4" :key="i + 1"
+            <button v-for="i in 5" :key="i + 1"
                   @click="goToPage(i + 1)"
                   :disabled="i + 1 === currentPage"
                   class="page-button">
                   {{ i + 1 }}
             </button>
-            <span v-if="totalPages > 6"
+            <span v-if="totalPages > 7"
                 class="page-button">
               ...
             </span>
@@ -61,22 +61,25 @@
               {{ totalPages }}
             </button>
           </template>
+
           <template v-else-if="currentPage > totalPages - 4">
             <span class="page-button">
               ...
             </span>
-            <button v-for="i in 4" :key="totalPages - 5 + i"
-                  @click="goToPage(totalPages - 5 + i)"
-                  :disabled="totalPages - 5 + i === currentPage"
+            <button v-for="i in 5" :key="totalPages - 6 + i"
+                  @click="goToPage(totalPages - 6 + i)"
+                  :disabled="totalPages - 6 + i === currentPage"
                   class="page-button">
-                  {{ totalPages - 5 + i }}
+                  {{ totalPages - 6 + i }}
             </button>
             <button
                 @click="goToLastPage"
+                :disabled="totalPages===currentPage"
                 class="page-button">
               {{ totalPages }}
             </button>
           </template>
+
           <template v-else>
             <span class="page-button">
               ...
