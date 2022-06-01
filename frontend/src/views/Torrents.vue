@@ -73,9 +73,9 @@ export default {
       this.loadTorrents(this.currentPage);
     },
     updatePageSize(pageSize) {
-      const newPage = Math.floor(this.currentPage * this.pageSize / pageSize);
+      this.currentPage = Math.floor(this.currentPage * this.pageSize / pageSize);
       this.pageSize = pageSize;
-      this.loadTorrents(newPage);
+      this.loadTorrents(this.currentPage);
     },
   },
   computed: {
