@@ -148,11 +148,7 @@ pub struct Login {
 pub async fn login(payload: web::Json<Login>, app_data: WebAppData) -> ServiceResult<impl Responder> {
     let settings = app_data.cfg.settings.read().await;
 
-    let res = if payload.login.contains('@') {
-        app_data.database.get_user_with_email(&payload.login).await
-    } else {
-        app_data.database.get_user_with_username(&payload.login).await
-    };
+    let res = app_data.database.get_user_with_username(&payload.login).await;
 
     match res {
         Some(user) => {
