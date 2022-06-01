@@ -56,6 +56,7 @@
               ...
             </span>
             <button v-if="totalPages > 1"
+                @click="goToLastPage"
                 class="page-button">
               {{ totalPages }}
             </button>
