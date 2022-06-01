@@ -63,7 +63,7 @@
             <span class="page-button">
               ...
             </span>
-            <button v-for="i in 4" :key="totalPages - i"
+            <button v-for="i in 4" :key="totalPages - 5 + i"
                   @click="goToPage(totalPages - i)"
                   :disabled="totalPages - i === currentPage"
                   class="page-button">
