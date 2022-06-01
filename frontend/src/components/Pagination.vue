@@ -77,10 +77,6 @@
                   class="page-button">
                   {{ totalPages - 6 + i }}
             </button>
-            <button @click="goToLastPage"
-                class="page-button">
-              {{ totalPages }}
-            </button>
           </template>
 
           <template v-else>
