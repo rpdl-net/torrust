@@ -35,7 +35,6 @@ pub fn init_routes(cfg: &mut web::ServiceConfig) {
 pub struct Register {
     pub username: String,
     pub email: Option<String>,
-    pub email: String,
     pub password: String,
     pub confirm_password: String,
 }
