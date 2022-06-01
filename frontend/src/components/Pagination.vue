@@ -38,8 +38,7 @@
             </svg>
           </button>
 
-          <button
-              @click="goToFirstPage"
+          <button @click="goToFirstPage"
               class="page-button"
               :disabled="currentPage === 1">
             1
@@ -63,7 +62,8 @@
           </template>
 
           <template v-else-if="currentPage > totalPages - 4">
-            <span class="page-button">
+            <span v-if="totalPages > 7"
+              class="page-button">
               ...
             </span>
             <button v-for="i in 5" :key="totalPages - 6 + i"
@@ -72,9 +72,8 @@
                   class="page-button">
                   {{ totalPages - 6 + i }}
             </button>
-            <button
-                @click="goToLastPage"
-                :disabled="totalPages===currentPage"
+            <button @click="goToLastPage"
+                :disabled="totalPages === currentPage"
                 class="page-button">
               {{ totalPages }}
             </button>
@@ -89,9 +88,7 @@
                     class="page-button">
               {{ currentPage - 3 + i }}
             </button>
-            <button
-                :key="currentPage"
-                disabled
+            <button disabled
                 class="page-button">
               {{ currentPage }}
             </button>
@@ -103,8 +100,7 @@
             <span class="page-button">
               ...
             </span>
-            <button
-                @click="goToLastPage"
+            <button @click="goToLastPage"
                 class="page-button">
               {{ totalPages }}
             </button>
