@@ -14,6 +14,11 @@
               </router-link>
             </div>
             <div class="ml-4 flex items-center">
+              <button class="px-4 py-1.5 bg-sky-500 text-sm text-white border border-sky-500 rounded-md transition duration-200 hover:shadow-lg hover:shadow-sky-500/25">
+                <span class="hidden md:block">Donate</span>
+              </button>
+            </div>
+            <div class="ml-4 flex items-center">
               <Profile />
             </div>
           </div>
