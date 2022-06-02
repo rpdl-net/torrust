@@ -73,7 +73,7 @@ export default {
       this.loadTorrents(this.currentPage);
     },
     updatePageSize(pageSize) {
-      this.currentPage = Math.max(Math.floor((this.currentPage - 1) * this.pageSize / pageSize), 1);
+      this.currentPage = Math.floor((this.currentPage - 1) * this.pageSize / pageSize) + 1;
       this.pageSize = pageSize;
       this.loadTorrents(this.currentPage);
     },
