@@ -102,6 +102,7 @@ export default {
       document.getElementById("tList").scrollIntoView({behavior: "smooth"});
     },
     categoryFilters() {
+      this.currentPage = 1;
       this.loadTorrents(this.currentPage, this.sorting);
     }
   },
