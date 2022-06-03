@@ -45,6 +45,7 @@ export default {
     loadTorrents(page) {
       HttpService.get(`/torrents?page_size=${this.pageSize}&page=${page-1}&sort=${this.sorting.name}_${this.sorting.direction}&categories=${this.categoryFilters.join(',')}&search=${this.search.replace(/\W/g, "")}`, (res) => {
         this.torrents = res.data.data;
+        this.torrents.total = 500;
       }).catch(() => {
       });
     },
@@ -74,6 +75,7 @@ export default {
       this.loadTorrents(this.currentPage);
     },
     updatePageSize(pageSize) {
+      this.currentPage = Math.floor((this.currentPage - 1) * this.pageSize / pageSize) + 1;
       this.pageSize = pageSize;
       this.loadTorrents(this.currentPage);
     },
@@ -102,6 +104,7 @@ export default {
       document.getElementById("TorrentList").scrollIntoView({behavior: "smooth"});
     },
     categoryFilters() {
+      this.currentPage = 1;
       this.loadTorrents(this.currentPage, this.sorting);
     }
   },
