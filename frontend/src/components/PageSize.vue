@@ -1,21 +1,17 @@
 <template>
-  <div class="relative inline-block text-left" style="margin-right: 10px;" v-click-outside="() => (dropdownOpened = false)">
+  <div class="relative inline-block text-left" v-click-outside="() => (dropdownOpened = false)">
     <button class="filter relative" @click="dropdownOpened = !dropdownOpened">
       <AdjustmentsIcon size="16" class="mr-1 opacity-50" />
-      Categories
+      Page Size
     </button>
     <div class="origin-top-left absolute left-0 mt-2 z-10" :class="{hidden: !dropdownOpened}">
       <div class="py-2 px-2 w-48 flex flex-col bg-slate-800 text-sm rounded-md shadow-lg">
         <ul v-if="$route.name === 'Browse Torrents'" id="category-filters" class="">
-          <li v-for="category in categories"
-              @click="selectFilter(category.name)"
+          <li v-for="size in pageSizes"
+              @click="updateSize(size)"
               class="cursor-pointer text-slate-400 hover:text-white"
-              :key="category.name">
-            <span class="">{{ titleCase(category.name) }} ({{ category.num_torrents }})</span>
-            <input type="checkbox" class="" :checked="filterActive(category.name)">
-          </li>
-          <li v-if="categoryFilters.length > 0">
-            <button @click="clearFilters" class="py-1.5 w-full rounded-md bg-red-500 bg-opacity-10 text-red-400 transition duration-200 hover:text-red-500">Clear filters</button>
+              :key="size">
+            <span class="">{{ size }}</span>
           </li>
         </ul>
       </div>
@@ -29,34 +25,25 @@ import { AdjustmentsIcon } from '@vue-hero-icons/solid'
 import {mapState} from "vuex";
 
 export default {
-  name: "FilterCategory",
+  name: "ChangePageSize",
   components: {UserIcon, AdjustmentsIcon},
+  props: {
+      updatePageSize: Function
+  },
   data: () => ({
     dropdownOpened: false,
+    pageSizes: [25,50,100,200]
   }),
   computed: {
     ...mapState({
-      user: state => state.auth.user,
-      categories: state => state.categories,
-      categoryFilters: state => state.categoryFilters
+      user: state => state.auth.user
     })
   },
   methods: {
-    filterActive(category) {
-      return this.categoryFilters.indexOf(category) > -1
-    },
-    selectFilter(category) {
-      let filters = this.categoryFilters;
-      if (filters.indexOf(category) > -1) {
-        filters.splice(filters.indexOf(category), 1);
-      } else {
-        filters.push(category);
+      updateSize(size) {
+          this.updatePageSize(size);
+          this.dropdownOpened = false;
       }
-      this.$store.commit('setCategoryFilters', filters);
-    },
-    clearFilters() {
-      this.$store.commit('setCategoryFilters', []);
-    },
   }
 }
 </script>
