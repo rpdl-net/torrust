@@ -69,11 +69,11 @@ export default {
       this.$router.replace({ query: {...this.$route.query, search: ''}})
     },
     updateSorting(sorting) {
-      this.currentPage = Math.floor((this.currentPage - 1) * this.pageSize / pageSize) + 1;
       this.sorting = sorting;
       this.loadTorrents(this.currentPage);
     },
     updatePageSize(pageSize) {
+      this.currentPage = Math.floor((this.currentPage - 1) * this.pageSize / this.pageSize) + 1;
       this.pageSize = pageSize;
       this.loadTorrents(this.currentPage);
     },
