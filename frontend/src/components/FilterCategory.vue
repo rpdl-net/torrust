@@ -57,12 +57,11 @@ export default {
         filters.push(category);
       }
       // this.$store.commit('setCategoryFilters', filters);
-      // this.updateCategoryFilters(filters);
+      this.updateCategoryFilters(filters);
     },
     clearFilters() {
       // this.$store.commit('setCategoryFilters', []);
-      // this.updateCategoryFilters(filters);
-      this.filters = [];
+      this.updateCategoryFilters([]);
     },
   }
 }
