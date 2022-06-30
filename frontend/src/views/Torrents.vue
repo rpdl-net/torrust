@@ -81,7 +81,7 @@ export default {
     updateCategoryFilters(filters) {
       this.filters = filters;
       this.currentPage = 1;
-      loadTorrents(this.currentPage);
+      this.loadTorrents(this.currentPage);
     },
   },
   computed: {
