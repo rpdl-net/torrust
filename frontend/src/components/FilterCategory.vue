@@ -42,6 +42,7 @@ export default {
     ...mapState({
       user: state => state.auth.user,
       categories: state => state.categories,
+      categoryFilters: state => state.categoryFilters
     })
   },
   methods: {
