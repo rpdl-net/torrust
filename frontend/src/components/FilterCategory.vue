@@ -34,7 +34,7 @@ export default {
   props: {
     updateCategoryFilters: Function,
     filters: Array
-  }
+  },
   data: () => ({
     dropdownOpened: false,
   }),
