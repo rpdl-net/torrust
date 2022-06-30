@@ -14,7 +14,7 @@
             <span class="">{{ titleCase(category.name) }} ({{ category.num_torrents }})</span>
             <input type="checkbox" class="" :checked="filterActive(category.name)">
           </li>
-          <li v-if="categoryFilters.length > 0">
+          <li v-if="filters.length > 0">
             <button @click="clearFilters" class="py-1.5 w-full rounded-md bg-red-500 bg-opacity-10 text-red-400 transition duration-200 hover:text-red-500">Clear filters</button>
           </li>
         </ul>
