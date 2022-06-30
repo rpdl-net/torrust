@@ -85,7 +85,7 @@ export default {
     },
   },
   computed: {
-    // ...mapState(['categoryFilters']),
+    ...mapState(['categoryFilters']),
     totalPages() {
       return Math.ceil(this.torrents.total / this.pageSize);
     },
@@ -100,14 +100,17 @@ export default {
       this.updateSortFromRoute();
       this.loadTorrents(this.currentPage, this.sorting);
     },
+    filters() {
+      this.loadTorrents(this.currentPage, this.sorting);
+    },
     currentPage(newPage) {
       this.loadTorrents(newPage, this.sorting);
       document.getElementById("tList").scrollIntoView({behavior: "smooth"});
     },
-    // categoryFilters() {
-    //   this.currentPage = 1;
-    //   this.loadTorrents(this.currentPage, this.sorting);
-    // }
+    categoryFilters(filter) {
+      this.currentPage = 1;
+      this.updateCategoryFilters(filter);
+    }
   },
   mounted() {
     this.$route.query.search ? this.search = this.$route.query.search : this.search = '';

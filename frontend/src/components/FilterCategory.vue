@@ -42,7 +42,6 @@ export default {
     ...mapState({
       user: state => state.auth.user,
       categories: state => state.categories,
-      // categoryFilters: state => state.categoryFilters
     })
   },
   methods: {
@@ -56,11 +55,9 @@ export default {
       } else {
         filters.push(category);
       }
-      // this.$store.commit('setCategoryFilters', filters);
       this.updateCategoryFilters(filters);
     },
     clearFilters() {
-      // this.$store.commit('setCategoryFilters', []);
       this.updateCategoryFilters([]);
     },
   }
