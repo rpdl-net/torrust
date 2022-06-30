@@ -31,6 +31,10 @@ import {mapState} from "vuex";
 export default {
   name: "FilterCategory",
   components: {UserIcon, AdjustmentsIcon},
+  props: {
+    updateCategoryFilters: Function,
+    filters: Array
+  }
   data: () => ({
     dropdownOpened: false,
   }),
@@ -38,7 +42,7 @@ export default {
     ...mapState({
       user: state => state.auth.user,
       categories: state => state.categories,
-      categoryFilters: state => state.categoryFilters
+      // categoryFilters: state => state.categoryFilters
     })
   },
   methods: {
@@ -46,16 +50,18 @@ export default {
       return this.categoryFilters.indexOf(category) > -1
     },
     selectFilter(category) {
-      let filters = this.categoryFilters;
+      let filters = this.filters;
       if (filters.indexOf(category) > -1) {
         filters.splice(filters.indexOf(category), 1);
       } else {
         filters.push(category);
       }
-      this.$store.commit('setCategoryFilters', filters);
+      // this.$store.commit('setCategoryFilters', filters);
+      updateCategoryFilters(filters);
     },
     clearFilters() {
-      this.$store.commit('setCategoryFilters', []);
+      // this.$store.commit('setCategoryFilters', []);
+      updateCategoryFilters([]);
     },
   }
 }

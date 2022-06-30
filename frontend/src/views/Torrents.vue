@@ -5,7 +5,7 @@
       <button @click="clearSearch" class="px-2 py-1 ml-2 text-sm rounded-md bg-red-500 bg-opacity-10 text-red-400 hover:text-red-500 transition duration-200">Clear search</button>
     </div>
     <div class="flex flex-row">
-      <FilterCategory />
+      <FilterCategory :update-category-filters="updateCategoryFilters" :filters="filters"/>
       <ChangePageSize :update-page-size="updatePageSize" />
     </div>
     <TorrentList id="tList" class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
@@ -39,6 +39,7 @@ export default {
     },
     currentPage: 1,
     pageSize: 50,
+    filters = [],
   }),
   methods: {
     loadTorrents(page) {
@@ -77,9 +78,14 @@ export default {
       this.pageSize = pageSize;
       this.loadTorrents(this.currentPage);
     },
+    updateCategoryFilters(filters) {
+      this.filters = filters;
+      this.currentPage = 1;
+      loadTorrents(this.currentPage);
+    },
   },
   computed: {
-    ...mapState(['categoryFilters']),
+    // ...mapState(['categoryFilters']),
     totalPages() {
       return Math.ceil(this.torrents.total / this.pageSize);
     },
@@ -101,10 +107,10 @@ export default {
       this.loadTorrents(newPage, this.sorting);
       document.getElementById("tList").scrollIntoView({behavior: "smooth"});
     },
-    categoryFilters() {
-      this.currentPage = 1;
-      this.loadTorrents(this.currentPage, this.sorting);
-    }
+    // categoryFilters() {
+    //   this.currentPage = 1;
+    //   this.loadTorrents(this.currentPage, this.sorting);
+    // }
   },
   mounted() {
     this.$route.query.search ? this.search = this.$route.query.search : this.search = '';
