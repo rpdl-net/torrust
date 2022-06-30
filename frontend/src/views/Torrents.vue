@@ -100,9 +100,6 @@ export default {
       this.updateSortFromRoute();
       this.loadTorrents(this.currentPage, this.sorting);
     },
-    filters() {
-      this.loadTorrents(this.currentPage, this.sorting);
-    },
     currentPage(newPage) {
       this.loadTorrents(newPage, this.sorting);
       document.getElementById("tList").scrollIntoView({behavior: "smooth"});
