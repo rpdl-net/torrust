@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     filterActive(category) {
-      return this.categoryFilters.indexOf(category) > -1
+      return this.filters.indexOf(category) > -1
     },
     selectFilter(category) {
       let filters = this.filters;
