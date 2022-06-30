@@ -56,6 +56,7 @@ export default {
       } else {
         filters.push(category);
       }
+      this.updateCategoryFilters(filters);
       this.$store.commit('setCategoryFilters', filters);
     },
     clearFilters() {
