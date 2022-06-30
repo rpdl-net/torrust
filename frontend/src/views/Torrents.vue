@@ -106,7 +106,9 @@ export default {
     },
     categoryFilters(filter) {
       this.currentPage = 1;
-      this.updateCategoryFilters(filter);
+      if(this.filters != filter){
+        this.updateCategoryFilters(filter);
+      }
     }
   },
   mounted() {
