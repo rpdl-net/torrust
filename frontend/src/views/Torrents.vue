@@ -39,7 +39,7 @@ export default {
     },
     currentPage: 1,
     pageSize: 50,
-    filters = [],
+    filters: [],
   }),
   methods: {
     loadTorrents(page) {
