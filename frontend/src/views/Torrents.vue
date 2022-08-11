@@ -43,7 +43,7 @@ export default {
   }),
   methods: {
     loadTorrents(page) {
-      HttpService.get(`/torrents?page_size=${this.pageSize}&page=${page-1}&sort=${this.sorting.name}_${this.sorting.direction}&categories=${this.categoryFilters.join(',')}&search=${this.search.replace(/\W/g, "")}`, (res) => {
+      HttpService.get(`/torrents?page_size=${this.pageSize}&page=${page-1}&sort=${this.sorting.name}_${this.sorting.direction}&categories=${this.categoryFilters.join(',')}&search=${this.search.replace(/\s/g, "")}`, (res) => {
         this.torrents = res.data.data;
       }).catch(() => {
       });
