@@ -62,12 +62,12 @@
       </div>
 
       <div>
-        <h3 class="py-2 text-xl font-semibold text-slate-200 truncate">If you like what we do, please consider donating a small amount over at <a class="text-slate-100" href="https://rpdl.net/funding">our funding page</a>. We currently rely on less than 20 donators to fund a platform serving thousands and we would like your help to change this.</h3>
-        <div class="py-3 border-t border-slate-200/5"></div>
+        <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
+        <h3 class="py-2 text-xl font-semibold text-slate-200/5">If you like what we do, please consider donating a small amount over at <a class="text-slate-200" href="https://rpdl.net/funding">our funding page</a>. We currently rely on less than 20 donators to fund a platform serving thousands and we would like your help to change this.</h3>
       </div>
 
       <div>
-        <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
+        <div class="py-3 border-b border-slate-200/5"></div>
         <div class="flex flex-row items-center">
           <h2 class="section">Torrent Description</h2>
           <button v-if="torrent.uploader === user.username && !editingDescription" @click="editDescription" class="ml-auto edit">Edit</button>
