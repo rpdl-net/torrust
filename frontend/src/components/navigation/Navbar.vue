@@ -14,12 +14,6 @@
               </router-link>
             </div>
             <div class="ml-4 flex items-center">
-              <a href="https://rpdl.net/funding" class="px-4 py-1.5 bg-[#ffd700] text-sm text-[#0f172a] border border-[#ffd700] rounded-md transition duration-200 hover:shadow-lg hover:shadow-[#ffdf33]/25">
-                <!-- <span class="hidden md:block">Donate</span> -->
-                <!-- <span class="block md:hidden">$</span> -->
-              </a>
-            </div>
-            <div class="ml-4 flex items-center">
               <Profile />
             </div>
           </div>
