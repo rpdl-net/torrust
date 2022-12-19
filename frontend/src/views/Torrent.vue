@@ -19,9 +19,9 @@
                 <div class="detail lg:border-none">Uploader:<span class="value">{{ torrent.uploader }}</span></div>
               </div>
               <div class="px-3 w-full lg:w-1/2 flex flex-col justify-start">
-                <div class="detail">Downloads:<span class="value italic">coming soon</span></div>
-                <div class="detail">Comments:<span class="value italic">coming soon</span></div>
-                <div class="detail border-none">Last Updated:<span class="value italic">coming soon</span></div>
+                <div class="detail">Downloads:<span class="value italic">coming soon™</span></div>
+                <div class="detail">Comments:<span class="value italic">coming soon™</span></div>
+                <div class="detail border-none">Last Updated:<span class="value italic">coming soon™</span></div>
               </div>
             </div>
             <div class="px-0 lg:pl-3 w-full mb-4 lg:mb-0 lg:w-1/3 flex flex-col items-center">
