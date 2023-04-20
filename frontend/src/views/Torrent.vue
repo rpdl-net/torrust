@@ -63,7 +63,7 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
-        <h3 class="py-2 text-xl font-semibold text-slate-200">If you like what we do, please consider donating a small amount over at <a href="https://rpdl.net/funding"  style="color: #0ea5e9">our funding page</a>. 💙</h3>
+        <h1 class="py-2 text-xl font-semibold text-slate-200"><br>Hey! We need your help - we're over a year old, but still can't pay the bills...</b><br>Please <a href="https://rpdl.net/funding/#/portal/"  style="color: #0ea5e9">help us out</a>, every bit helps! 💙</h3>
       </div>
 
       <div>
