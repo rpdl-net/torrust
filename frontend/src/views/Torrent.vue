@@ -29,7 +29,7 @@
                 <div class="status">Seeders: <span class="ml-auto text-green-500">{{ torrent.seeders }}</span></div>
                 <div class="ml-2 status">Leechers: <span class="ml-auto text-red-500">{{ torrent.leechers }}</span></div>
               </div>
-              <button type="button" @click="downloadTorrent"
+              <button type="button" data-umami-event="TDL" @click="downloadTorrent"
                       class="mt-2 px-3 py-1.5 w-full flex flex-row justify-center text-sm text-white text-center bg-green-600 border border-green-600 rounded-md transition duration-200 hover:shadow-lg hover:shadow-green-600/25">
                 <DownloadIcon class="justify-self-start mr-2 w-5 h-5"/>
                 <span>Torrent Download</span>
