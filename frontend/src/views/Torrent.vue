@@ -93,7 +93,7 @@
         </div>
       </div>
     </div>
-    <h1 v-else-if="!loading" class="py-6 text-slate-600 italic">Torrent not found.<br>Try search for new version or ask on <a href="https://rpdl.net/discord>Discord</a>!</h1>
+    <h1 v-else-if="!loading" class="py-6 text-slate-600 italic">Torrent not found.<br>Try search for new version!</h1>
     <div v-else class="flex flex-row text-slate-400 items-center" disabled>
       <svg class="animate-spin h-5 w-5 mr-3 text-sky-500" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
