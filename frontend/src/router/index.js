@@ -15,7 +15,7 @@ const routes = [
         children: [
             {
                 path: '/',
-                name: 'Welcome',
+                name: 'Welcome to dl.rpdl.net',
                 component: Welcome,
             },
             {
