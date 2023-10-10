@@ -63,9 +63,6 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
-        <h1 class="py-2 text-xl font-semibold text-slate-200"><br>We've started a funding run!</b> <a href="https://rpdl.net/funding-run/"  style="color: #0ea5e9">More info here</a>, thanks everyone! 💙</h3>
-      </div>
-
       <div>
         <div class="py-3 border-b border-slate-200/5"></div>
         <div class="flex flex-row items-center">
