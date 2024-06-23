@@ -65,7 +65,7 @@
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
       </div>
       <div>
-        <div class="py-3 border-b border-slate-200/5"></div>
+<!--        <div class="py-3 border-b border-slate-200/5"></div>-->
         <div class="flex flex-row items-center">
           <h2 class="section">Torrent Description</h2>
           <button v-if="torrent.uploader === user.username && !editingDescription" @click="editDescription" class="ml-auto edit">Edit</button>
