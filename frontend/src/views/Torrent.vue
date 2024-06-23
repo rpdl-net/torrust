@@ -63,7 +63,6 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
-        <h1 class="py-2 text-xl font-semibold text-slate-200">We're looking to expand the team - <a href="https://f95zone.to/threads/rpdl-net-discussion-questions-torrents.96535/post-13316990" style="color: #0ea5e9">read more here!</a></h3>
       </div>
       <div>
         <div class="py-3 border-b border-slate-200/5"></div>
