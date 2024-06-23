@@ -2,7 +2,7 @@
 ![Test](https://github.com/torrust/torrust/actions/workflows/test.yml/badge.svg)
 ![Build](https://github.com/torrust/torrust/actions/workflows/build.yml/badge.svg)
 
-## Project Description
+### Project Description
 
 Torrust is a suite of client-server software for hosting online torrent indexes.
 **Torrust only works with the torrust tracker, it does not work with other trackers currently.**
