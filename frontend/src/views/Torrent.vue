@@ -63,6 +63,8 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
+        <div class="mt-10 px-3 py-2 text-2xl text-white bg-red-600 rounded-md hover:shadow-lg hover:shadow-red-600/25 transition duration-200">
+        Ensure your version of 7zip is updated. Read more here <a href="https://www.zerodayinitiative.com/advisories/ZDI-24-1532/" target="_blank">here</a>.<br>Download newest version at the 7zip website, <a href="https://7-zip.org/download.html" target="_blank">7-zip.org</a>.</div>
       </div>
       <div>
 <!--        <div class="py-3 border-b border-slate-200/5"></div>-->
