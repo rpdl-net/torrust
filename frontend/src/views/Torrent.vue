@@ -63,8 +63,7 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
-        <div class="px-3 py-2 text-2xl text-white bg-slate-800 rounded-md">
-        Important: If you use 7zip, You need to update to version 24.08. Read more <u><a href="https://www.zerodayinitiative.com/advisories/ZDI-24-1532/" target="_blank">here</a></u><br>You can download it from <u><a href="https://7-zip.org/download.html" target="_blank">7-zip.org</a></u></div>
+<!--        <div class="px-3 py-2 text-2xl text-white bg-slate-800 rounded-md"></div>-->
       </div>
       <div>
 <!--        <div class="py-3 border-b border-slate-200/5"></div>-->
