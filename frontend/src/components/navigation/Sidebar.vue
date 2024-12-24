@@ -56,12 +56,12 @@
             </button>
           </li>
           <li>
-            <button @click="goToFullURL('https://rpdl.net/faq/')">
+            <button @click="goToFullURL('https://rpdl.net/docs/faq/')">
               <span>FAQ</span>
             </button>
           </li>
           <li>
-            <button @click="goToFullURL('https://rpdl.net/tools/')">
+            <button @click="goToFullURL('https://rpdl.net/docs/tools/')">
               <span>Third Party Tools</span>
             </button>
           </li>
