@@ -51,11 +51,6 @@
         <h3 class="py-2 text-slate-400 font-semibold">Resources</h3>
         <ul>
           <li>
-            <button @click="goToFullURL('https://rpdl.net/tag/news/')">
-              <span>News</span>
-            </button>
-          </li>
-          <li>
             <button @click="goToFullURL('https://rpdl.net/docs/faq/')">
               <span>FAQ</span>
             </button>
