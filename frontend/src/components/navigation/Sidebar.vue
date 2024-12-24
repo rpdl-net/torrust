@@ -56,6 +56,11 @@
             </button>
           </li>
           <li>
+            <button @click="goToFullURL('https://rpdl.net/discord')">
+              <span>Discord</span>
+            </button>
+          </li>
+          <li>
             <button @click="goToFullURL('https://rpdl.net/docs/tools/')">
               <span>Third Party Tools</span>
             </button>
