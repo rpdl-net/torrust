@@ -137,7 +137,7 @@ If this account wasn't made by you, you can ignore this email.
             base_url = cfg_base_url;
         }
 
-        format!("{}/user/verify/{}", base_url, token)
+        format!("{}/user/email/verify/{}", base_url, token)
     }
 }
 
