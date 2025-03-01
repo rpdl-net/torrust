@@ -19,7 +19,8 @@
                  class="bg-transparent text-white font-light w-full focus:outline-none">
         </div>
       </div>
-
+      <div class="h-4 bg-gradient-to-b from-white dark:from-slate-900"></div>
+    </div>
     <!-- items -->
     <ul>
       <li class="nav">
