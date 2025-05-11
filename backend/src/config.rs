@@ -1,7 +1,7 @@
+use config::{Config, ConfigError, File};
+use serde::{Deserialize, Serialize};
 use std::fs;
-use config::{ConfigError, Config, File};
 use std::path::Path;
-use serde::{Serialize, Deserialize};
 use tokio::sync::RwLock;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -27,7 +27,7 @@ pub struct Network {
 pub enum EmailOnSignup {
     Required,
     Optional,
-    None
+    None,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -36,6 +36,8 @@ pub struct Auth {
     pub min_password_length: usize,
     pub max_password_length: usize,
     pub secret_key: String,
+    pub session_duration_seconds: u64,
+    pub renewal_grace_time: u64,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -80,37 +82,39 @@ pub struct Configuration {
     // pub database: Database,
     // pub storage: Storage,
     // pub mail: Mail,
-    pub settings: RwLock<TorrustConfig>
+    pub settings: RwLock<TorrustConfig>,
 }
 
 impl Configuration {
     pub fn default() -> Configuration {
         let torrust_config = TorrustConfig {
             website: Website {
-                name: "Torrust".to_string()
+                name: "Torrust".to_string(),
             },
             tracker: Tracker {
                 url: "udp://localhost:6969".to_string(),
                 api_url: "http://localhost:1212".to_string(),
                 token: "MyAccessToken".to_string(),
-                token_valid_seconds: 7257600
+                token_valid_seconds: 7257600,
             },
             net: Network {
                 port: 3000,
-                base_url: None
+                base_url: None,
             },
             auth: Auth {
                 email_on_signup: EmailOnSignup::Optional,
                 min_password_length: 6,
                 max_password_length: 64,
-                secret_key: "MaxVerstappenWC2021".to_string()
+                secret_key: "MaxVerstappenWC2021".to_string(),
+                session_duration_seconds: 604_800,
+                renewal_grace_time: 604_800,
             },
             database: Database {
                 connect_url: "sqlite://data.db?mode=rwc".to_string(),
-                torrent_info_update_interval: 3600
+                torrent_info_update_interval: 3600,
             },
             storage: Storage {
-                upload_path: "./uploads".to_string()
+                upload_path: "./uploads".to_string(),
             },
             mail: Mail {
                 email_verification_enabled: false,
@@ -119,12 +123,12 @@ impl Configuration {
                 username: "".to_string(),
                 password: "".to_string(),
                 server: "".to_string(),
-                port: 25
-            }
+                port: 25,
+            },
         };
 
         Configuration {
-            settings: RwLock::new(torrust_config)
+            settings: RwLock::new(torrust_config),
         }
     }
 
@@ -140,20 +144,25 @@ impl Configuration {
             eprintln!("Creating config file..");
             let config = Configuration::default();
             let _ = config.save_to_file().await;
-            return Err(ConfigError::Message(format!("Please edit the config.TOML in the root folder and restart the tracker.")))
+            return Err(ConfigError::Message(format!(
+                "Please edit the config.TOML in the root folder and restart the tracker."
+            )));
         }
 
         let torrust_config: TorrustConfig = match config.try_into() {
             Ok(data) => Ok(data),
-            Err(e) => Err(ConfigError::Message(format!("Errors while processing config: {}.", e))),
+            Err(e) => Err(ConfigError::Message(format!(
+                "Errors while processing config: {}.",
+                e
+            ))),
         }?;
 
         Ok(Configuration {
-            settings: RwLock::new(torrust_config)
+            settings: RwLock::new(torrust_config),
         })
     }
 
-    pub async fn save_to_file(&self) -> Result<(), ()>{
+    pub async fn save_to_file(&self) -> Result<(), ()> {
         let settings = self.settings.read().await;
 
         let toml_string = toml::to_string(&*settings).expect("Could not encode TOML value");
@@ -183,7 +192,7 @@ impl Configuration {
         ConfigurationPublic {
             website_name: settings_lock.website.name.clone(),
             tracker_url: settings_lock.tracker.url.clone(),
-            email_on_signup: settings_lock.auth.email_on_signup.clone()
+            email_on_signup: settings_lock.auth.email_on_signup.clone(),
         }
     }
 }
@@ -192,5 +201,5 @@ impl Configuration {
 pub struct ConfigurationPublic {
     website_name: String,
     tracker_url: String,
-    email_on_signup: EmailOnSignup
+    email_on_signup: EmailOnSignup,
 }
