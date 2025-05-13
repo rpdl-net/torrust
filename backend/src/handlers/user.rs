@@ -87,26 +87,15 @@ impl RegistrationService {
         payload: web::Json<Token>,
         app_data: &WebAppData,
     ) -> Result<(String, UserCompact), ServiceError> {
-        log!(Level::Info, "Renew token enter");
         // verify if token is valid
         let claims = app_data.auth.verify_jwt(&payload.token).await;
-
-        log!(Level::Info, "Claims check #1 done");
 
         // If claims are valid, we will return the original token with the compact user
         // Else we retrieve the JWT if the grace period has not expired
         let claims = match claims {
-            Ok(claims) => {
-                log!(Level::Info, "Claims check #1 valid");
-                claims
-            }
-            Err(_) => {
-                log!(Level::Info, "Claims check #1 invalid");
-                app_data.auth.decode_jwt(&payload.token).await?
-            }
+            Ok(claims) => claims,
+            Err(_) => app_data.auth.decode_jwt(&payload.token).await?,
         };
-
-        log!(Level::Info, "Claims check #2 done");
 
         let user_compact = self
             .user_repository
@@ -258,7 +247,7 @@ pub async fn login(
             if settings.mail.email_verification_enabled && !user.email_verified {
                 return Err(ServiceError::EmailNotVerified);
             }
-            log!(Level::Info, "User email ok.");
+            log!(Level::Debug, "User email ok.");
             drop(settings);
 
             let parsed_hash = PasswordHash::new(&user.password)?;
@@ -269,7 +258,7 @@ pub async fn login(
             {
                 return Err(ServiceError::WrongPasswordOrUsername);
             }
-            log!(Level::Info, "Password ok.");
+            log!(Level::Debug, "Password ok.");
 
             let user_compact = app_data
                 .database
@@ -277,11 +266,11 @@ pub async fn login(
                 .await
                 .map_err(|_| ServiceError::UsernameNotFound)?;
 
-            log!(Level::Info, "Compact user ok.");
+            log!(Level::Debug, "Compact user ok.");
 
             let token = app_data.auth.sign_jwt(user_compact.clone()).await;
 
-            log!(Level::Info, "Token ok.");
+            log!(Level::Debug, "Token ok.");
             // let username = user_compact.username;
 
             Ok(HttpResponse::Ok().json(OkResponse {
