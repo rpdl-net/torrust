@@ -42,7 +42,7 @@ impl AuthorizationService {
         match self.decode_token(token).await {
             Ok(claims) => {
                 if claims.exp < current_time() {
-                    log!(Level::Info, "Token validity expired");
+                    log!(Level::Debug, "Token validity expired");
                     return Err(ServiceError::TokenExpired);
                 }
                 Ok(claims)
@@ -57,7 +57,7 @@ impl AuthorizationService {
         match self.decode_token(token).await {
             Ok(claims) => {
                 if claims.exp + settings.auth.renewal_grace_time < current_time() {
-                    log!(Level::Info, "Token extended validity expired");
+                    log!(Level::Debug, "Token extended validity expired");
                     return Err(ServiceError::TokenExpired);
                 }
                 Ok(claims)
@@ -82,7 +82,7 @@ impl AuthorizationService {
                         .claims)
                 }
                 _ => {
-                    log!(Level::Info, "{:#?}", e.kind());
+                    log!(Level::Debug, "{:#?}", e.kind());
                     Err(ServiceError::TokenInvalid)
                 }
             },
