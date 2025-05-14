@@ -1,98 +1,67 @@
-use crate::config::Configuration;
-use crate::database::SqliteDatabase;
-use crate::errors::ServiceError;
-use crate::models::user::{User, UserClaims, UserCompact};
-use crate::utils::time::current_time;
 use actix_web::HttpRequest;
-use jsonwebtoken::{
-    dangerous_insecure_decode, decode, encode, Algorithm, DecodingKey, EncodingKey, Header,
-    Validation,
-};
-use log::{log, Level};
+use crate::models::user::{Claims, User};
+use jsonwebtoken::{decode, DecodingKey, Validation, Algorithm, encode, Header, EncodingKey};
+use crate::utils::time::current_time;
+use crate::errors::ServiceError;
 use std::sync::Arc;
+use crate::database::Database;
+use crate::config::Configuration;
 
 pub struct AuthorizationService {
     cfg: Arc<Configuration>,
-    database: Arc<SqliteDatabase>,
+    database: Arc<Database>,
 }
 
 impl AuthorizationService {
-    pub fn new(cfg: Arc<Configuration>, database: Arc<SqliteDatabase>) -> AuthorizationService {
-        AuthorizationService { cfg, database }
+    pub fn new(cfg: Arc<Configuration>, database: Arc<Database>) -> AuthorizationService {
+        AuthorizationService {
+            cfg,
+            database
+        }
     }
 
-    pub async fn sign_jwt(&self, user: UserCompact) -> String {
+    pub async fn sign_jwt(&self, user: User) -> String {
         let settings = self.cfg.settings.read().await;
 
         // create JWT that expires in two weeks
         let key = settings.auth.secret_key.as_bytes();
-        let exp_date = current_time() + settings.auth.session_duration_seconds; // two weeks from now
+        let exp_date = current_time() + 1_209_600; // two weeks from now
 
-        let claims = UserClaims {
-            user: user,
+        let claims = Claims {
+            sub: user.username,
+            admin: user.administrator,
             exp: exp_date,
         };
 
-        let token = encode(&Header::default(), &claims, &EncodingKey::from_secret(key)).unwrap();
+        let token = encode(
+            &Header::default(),
+            &claims,
+            &EncodingKey::from_secret(key),
+        )
+            .unwrap();
 
         token
     }
 
-    pub async fn verify_jwt(&self, token: &str) -> Result<UserClaims, ServiceError> {
-        match self.decode_token(token).await {
-            Ok(claims) => {
-                if claims.exp < current_time() {
-                    log!(Level::Debug, "Token validity expired");
-                    return Err(ServiceError::TokenExpired);
-                }
-                Ok(claims)
-            }
-            Err(_) => Err(ServiceError::TokenInvalid),
-        }
-    }
-
-    pub async fn decode_jwt(&self, token: &str) -> Result<UserClaims, ServiceError> {
+    pub async fn verify_jwt(&self, token: &str) -> Result<Claims, ServiceError> {
         let settings = self.cfg.settings.read().await;
 
-        match self.decode_token(token).await {
-            Ok(claims) => {
-                if claims.exp + settings.auth.renewal_grace_time < current_time() {
-                    log!(Level::Debug, "Token extended validity expired");
-                    return Err(ServiceError::TokenExpired);
-                }
-                Ok(claims)
-            }
-            Err(_) => Err(ServiceError::TokenInvalid),
-        }
-    }
-
-    async fn decode_token(&self, token: &str) -> Result<UserClaims, ServiceError> {
-        let settings = self.cfg.settings.read().await;
-
-        match decode::<UserClaims>(
+        match decode::<Claims>(
             token,
             &DecodingKey::from_secret(settings.auth.secret_key.as_bytes()),
             &Validation::new(Algorithm::HS256),
         ) {
-            Ok(claims) => Ok(claims.claims),
-            Err(e) => match e.kind() {
-                jsonwebtoken::errors::ErrorKind::ExpiredSignature => {
-                    Ok(dangerous_insecure_decode::<UserClaims>(token)
-                        .unwrap()
-                        .claims)
+            Ok(token_data) => {
+                if token_data.claims.exp < current_time() {
+                    return Err(ServiceError::TokenExpired)
                 }
-                _ => {
-                    log!(Level::Debug, "{:#?}", e.kind());
-                    Err(ServiceError::TokenInvalid)
-                }
+                Ok(token_data.claims)
             },
+            Err(_) => Err(ServiceError::TokenInvalid)
         }
     }
 
-    pub async fn get_claims_from_request(
-        &self,
-        req: &HttpRequest,
-    ) -> Result<UserClaims, ServiceError> {
+    pub async fn get_claims_from_request(&self, req: &HttpRequest) -> Result<Claims, ServiceError> {
         let _auth = req.headers().get("Authorization");
         match _auth {
             Some(_) => {
@@ -104,23 +73,19 @@ impl AuthorizationService {
                     Err(e) => Err(e),
                 }
             }
-            None => Err(ServiceError::TokenNotFound),
+            None => Err(ServiceError::TokenNotFound)
         }
     }
 
     pub async fn get_user_from_request(&self, req: &HttpRequest) -> Result<User, ServiceError> {
         let claims = match self.get_claims_from_request(req).await {
             Ok(claims) => Ok(claims),
-            Err(e) => Err(e),
+            Err(e) => Err(e)
         }?;
 
-        match self
-            .database
-            .get_user_with_username(&claims.user.username)
-            .await
-        {
+        match self.database.get_user_with_username(&claims.sub).await {
             Some(user) => Ok(user),
-            None => Err(ServiceError::AccountNotFound),
+            None => Err(ServiceError::AccountNotFound)
         }
     }
 }

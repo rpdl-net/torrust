@@ -7,7 +7,6 @@ backend/package-lock.json
 /frontend/.env
 
 /backend/.env
-/backend/.sqlx
 /backend/config.toml
 /backend/data.db
 /backend/data.db-shm
