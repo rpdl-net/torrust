@@ -12,7 +12,7 @@
           <h2 class="font-semibold text-xs lg:text-sm text-slate-400 uppercase">{{ torrent.info_hash }}</h2>
 
           <div class="py-4 flex flex-col flex-col-reverse lg:flex-row">
-            <div class="px-1 py-1 w-full lg:w-2/3 flex flex-col lg:flex-row flex-row bg-slate-800/50 rounded-md">
+            <div class="px-1 py-1 w-full lg:w-2/3 flex flex-col lg:flex-row flex-row bg-neutral-800/50 rounded-md">
               <div class="px-3 w-full lg:w-1/2 flex flex-col justify-start">
                 <div class="detail">Total size:<span class="value">{{ fileSize(torrent.file_size) }}</span></div>
                 <div class="detail">Upload Date:<span class="value">{{ new Date(torrent.upload_date * 1000).toLocaleString() }}</span></div>
@@ -63,7 +63,7 @@
 
       <div>
         <div v-if="isAdmin" class="py-3 border-b border-slate-200/5"></div>
-<!--        <div class="px-3 py-2 text-2xl text-white bg-slate-800 rounded-md"></div>-->
+<!--        <div class="px-3 py-2 text-2xl text-white bg-neutral-800 rounded-md"></div>-->
       </div>
       <div>
 <!--        <div class="py-3 border-b border-slate-200/5"></div>-->
@@ -78,7 +78,7 @@
         <div class="py-3 border-t border-slate-200/5"></div>
         <textarea v-if="editingDescription" rows="8" v-model="newDescription" class="input"></textarea>
         <h2 v-if="editingDescription" class="section">Markdown Preview</h2>
-        <MarkdownItVue v-if="editingDescription" :content="newDescription" class="px-4 py-4 max-h-64 overflow-auto md-body max-w-none prose-sm prose-blue bg-slate-800/50 rounded-md" />
+        <MarkdownItVue v-if="editingDescription" :content="newDescription" class="px-4 py-4 max-h-64 overflow-auto md-body max-w-none prose-sm prose-blue bg-neutral-800/50 rounded-md" />
         <MarkdownItVue v-if="!editingDescription && torrent.description" :content="torrent.description" class="md-body max-w-none prose-sm prose-blue" />
         <span v-if="!editingDescription && !torrent.description" class="text-slate-400 italic">Empty</span>
       </div>
@@ -268,7 +268,7 @@ export default {
 
 <style>
 .status {
-  @apply px-2 py-1.5 w-1/2 flex flex-row bg-slate-800/50 text-slate-200 capitalize border border-transparent rounded-md text-sm uppercase;
+  @apply px-2 py-1.5 w-1/2 flex flex-row bg-neutral-800/50 text-slate-200 capitalize border border-transparent rounded-md text-sm uppercase;
 }
 
 .detail {
@@ -284,11 +284,11 @@ h2.section {
 }
 
 button.edit {
-  @apply px-4 py-1.5 rounded-md border border-slate-800 text-sm text-slate-400 flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200 disabled:bg-slate-700 disabled:border-slate-700 disabled:text-slate-400;
+  @apply px-4 py-1.5 rounded-md border border-slate-800 text-sm text-slate-400 flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200 disabled:bg-neutral-700 disabled:border-slate-700 disabled:text-slate-400;
 }
 
 textarea.input {
-  @apply py-2 px-4 bg-slate-800/50 appearance-none w-full text-slate-200 rounded-md leading-tight focus:outline-none;
+  @apply py-2 px-4 bg-neutral-800/50 appearance-none w-full text-slate-200 rounded-md leading-tight focus:outline-none;
 }
 
 .markdown-body {
@@ -304,7 +304,7 @@ textarea.input {
 }
 
 .markdown-body hr {
-  @apply bg-slate-200/50;
+  @apply bg-neutral-200/50;
 }
 
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
@@ -312,10 +312,10 @@ textarea.input {
 }
 
 .markdown-body .highlight pre, .markdown-body pre {
-  @apply bg-slate-800 text-slate-400 rounded-md;
+  @apply bg-neutral-800 text-slate-400 rounded-md;
 }
 
 .markdown-body table tr, .markdown-body table td, .markdown-body table th {
-  @apply bg-slate-800 border-slate-700;
+  @apply bg-neutral-800 border-slate-700;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-      class="flex fixed top-0 left-0 z-30 flex-col justify-center w-full min-h-screen bg-slate-900/90 backdrop-blur"
+      class="flex fixed top-0 left-0 z-30 flex-col justify-center w-full min-h-screen bg-neutral-900/90 backdrop-blur"
       :class="{hidden: !authModalOpen}"
       @click.self="close"
   >
@@ -9,7 +9,7 @@
         <h1 class="text-white text-3xl font-bold">{{ $store.state.settings.website.name }}</h1>
       </div>
       <div
-          class="px-6 py-6 text-slate-400 bg-slate-800 rounded-md shadow mx-auto max-w-md"
+          class="px-6 py-6 text-slate-400 bg-neutral-800 rounded-md shadow mx-auto max-w-md"
       >
         <transition
             enter-active-class="transition ease-out duration-100 transform"
@@ -173,7 +173,7 @@ label {
 }
 
 .form-style {
-  @apply mt-1 w-full px-3 py-2 text-white bg-slate-800 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-slate-800
+  @apply mt-1 w-full px-3 py-2 text-white bg-neutral-800 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-neutral-800
   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition duration-200;
 }
 </style>
