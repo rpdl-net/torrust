@@ -9,7 +9,7 @@
         <h1 class="text-white text-3xl font-bold">{{ $store.state.settings.website.name }}</h1>
       </div>
       <div
-          class="px-6 py-6 text-slate-400 bg-cod-gray-800 rounded-md shadow mx-auto max-w-md"
+          class="px-6 py-6 text-slate-400 bg-cod-gray-900 rounded-md shadow mx-auto max-w-md"
       >
         <transition
             enter-active-class="transition ease-out duration-100 transform"
@@ -173,7 +173,7 @@ label {
 }
 
 .form-style {
-  @apply mt-1 w-full px-3 py-2 text-white bg-cod-gray-800 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-neutral-800
+  @apply mt-1 w-full px-3 py-2 text-white bg-cod-gray-900 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-neutral-800
   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition duration-200;
 }
 </style>

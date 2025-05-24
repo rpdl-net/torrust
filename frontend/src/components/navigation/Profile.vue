@@ -15,7 +15,7 @@
     </button>
 
     <div class="origin-top-right absolute right-0 mt-2 z-10" :class="{hidden: !dropdownOpened}">
-      <div @click.prevent="() => (dropdownOpened = false)" class="py-2 px-2 w-48 flex flex-col bg-cod-gray-800 text-sm rounded-md shadow-lg">
+      <div @click.prevent="() => (dropdownOpened = false)" class="py-2 px-2 w-48 flex flex-col bg-cod-gray-900 text-sm rounded-md shadow-lg">
         <router-link v-if="$store.getters.isAdministrator" to="/settings" replace class="py-1.5 text-center text-slate-100 border border-transparent rounded-md transition duration-200 hover:bg-cod-gray-700 hover:border-slate-700">
           <span>Settings</span>
         </router-link>

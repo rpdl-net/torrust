@@ -10,7 +10,7 @@
     <!-- search bar -->
     <div class="sticky top-0 py-4 -ml-0.5 pointer-events-none">
       <div class="relative pointer-events-auto">
-        <div class="w-full flex items-center text-sm text-slate-400 bg-cod-gray-800/50 rounded-md ring-1 ring-slate-900/10 py-1.5 pl-2 pr-3 transition duration-200 hover:ring-sky-400 focus:ring-sky-400">
+        <div class="w-full flex items-center text-sm text-slate-400 bg-cod-gray-900/50 rounded-md ring-1 ring-slate-900/10 py-1.5 pl-2 pr-3 transition duration-200 hover:ring-sky-400 focus:ring-sky-400">
           <svg @click="submitSearch" width="22" height="22" fill="none" aria-hidden="true" class="mr-2 flex-none cursor-pointer">
             <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
