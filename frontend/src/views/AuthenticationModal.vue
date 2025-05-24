@@ -9,7 +9,7 @@
         <h1 class="text-white text-3xl font-bold">{{ $store.state.settings.website.name }}</h1>
       </div>
       <div
-          class="px-6 py-6 text-slate-400 bg-cod-gray-900 rounded-md shadow mx-auto max-w-md"
+          class="px-6 py-6 text-white bg-cod-gray-900 rounded-md shadow mx-auto max-w-md"
       >
         <transition
             enter-active-class="transition ease-out duration-100 transform"
@@ -19,8 +19,8 @@
             leave-class="opacity-100 scale-100"
             leave-to-class="opacity-0 scale-95"
         >
-          <h2 v-if="isSignUp" class="text-xl mb-4 font-semibold text-center text-slate-400 uppercase">Create account</h2>
-          <h2 v-else class="text-xl mb-4 font-semibold text-center text-slate-400 uppercase">Login</h2>
+          <h2 v-if="isSignUp" class="text-xl mb-4 font-semibold text-center text-white uppercase">Create account</h2>
+          <h2 v-else class="text-xl mb-4 font-semibold text-center text-white uppercase">Login</h2>
         </transition>
 
         <form
@@ -113,10 +113,10 @@
         </form>
         <div class="relative mt-6">
           <div class="flex relative justify-center text-sm">
-            <button v-if="isSignUp" class="px-2 font-semibold text-slate-400 hover:text-slate-200 transition duration-200" @click="toggleMode">
+            <button v-if="isSignUp" class="px-2 font-semibold text-white hover:text-white transition duration-200" @click="toggleMode">
               Already have an account? Sign in
             </button>
-            <button v-else class="px-2 font-semibold text-slate-400 hover:text-slate-200 transition duration-200" @click="toggleMode">
+            <button v-else class="px-2 font-semibold text-white hover:text-white transition duration-200" @click="toggleMode">
               Don't have an account? Sign up
             </button>
           </div>
@@ -169,7 +169,7 @@ export default {
 <style scoped>
 
 label {
-  @apply text-left text-xs font-medium uppercase tracking-wider text-slate-400 hover:text-slate-200;
+  @apply text-left text-xs font-medium uppercase tracking-wider text-white hover:text-white;
 }
 
 .form-style {

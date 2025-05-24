@@ -9,7 +9,7 @@
         <ul v-if="$route.name === 'Browse Torrents'" id="category-filters" class="">
           <li v-for="category in categories"
               @click="selectFilter(category.name)"
-              class="cursor-pointer text-slate-400 hover:text-white"
+              class="cursor-pointer text-white hover:text-white"
               :key="category.name">
             <span class="">{{ titleCase(category.name) }} ({{ category.num_torrents }})</span>
             <input type="checkbox" class="" :checked="filterActive(category.name)">
@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .filter {
-  @apply px-3 py-1.5 text-slate-400 text-sm border border-slate-800 rounded-md flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200;
+  @apply px-3 py-1.5 text-white text-sm border border-slate-800 rounded-md flex items-center relative cursor-pointer transition duration-200 hover:text-white hover:border-slate-200;
 }
 
 .regular-checkbox {

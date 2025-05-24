@@ -1,7 +1,7 @@
 <template>
   <svg
       viewBox="0 0 248 31"
-      class="text-slate-900 dark:text-white"
+      class="text-white dark:text-white"
   >
     <path
         fill-rule="evenodd"

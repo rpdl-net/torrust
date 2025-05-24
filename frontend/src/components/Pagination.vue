@@ -3,7 +3,7 @@
   <div class="py-6 flex items-center justify-between">
     <div class="flex-1 flex items-center sm:justify-between justify-end">
       <div class="hidden sm:block">
-        <p class="text-sm text-slate-400">
+        <p class="text-sm text-white">
           Showing
           <span class="font-medium">{{ (currentPage * pageSize) - pageSize }}</span>
           to
@@ -189,7 +189,7 @@ export default {
 <style scoped>
 
 .page-button {
-  @apply relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-400 hover:text-slate-200 outline-none;
+  @apply relative inline-flex items-center px-4 py-2 text-sm font-medium text-white hover:text-white outline-none;
 }
 
 .page-button[disabled] {

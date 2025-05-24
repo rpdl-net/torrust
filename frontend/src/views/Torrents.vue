@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10">
     <div v-if="search" class="mb-2 flex flex-row">
-      <h2 class="text-slate-400">Search results for '{{ this.search }}'</h2>
+      <h2 class="text-white">Search results for '{{ this.search }}'</h2>
       <button @click="clearSearch" class="px-2 py-1 ml-2 text-sm rounded-md bg-red-500 bg-opacity-10 text-red-400 hover:text-red-500 transition duration-200">Clear search</button>
     </div>
     <div class="flex flex-row">
@@ -11,7 +11,7 @@
 
     <TorrentList id="TorrentList" class="mt-4" v-if="torrents.results.length > 0" :torrents="torrents.results" :sorting="sorting" :update-sorting="updateSorting"/>
     <Pagination v-if="torrents.results.length > 0" :current-page.sync="currentPage" :total-pages="totalPages" :total-results="torrents.total" :page-size="pageSize" />
-    <div v-else class="py-6 text-slate-400">This category has no results.</div>
+    <div v-else class="py-6 text-white">This category has no results.</div>
   </div>
 </template>
 
@@ -116,6 +116,6 @@ export default {
 
 <style scoped>
 .filter {
-  @apply px-3 py-1.5 text-slate-400 text-sm font-semibold border border-slate-800 rounded-md flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200;
+  @apply px-3 py-1.5 text-white text-sm font-semibold border border-slate-800 rounded-md flex items-center relative cursor-pointer transition duration-200 hover:text-white hover:border-slate-200;
 }
 </style>

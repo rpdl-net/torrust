@@ -8,8 +8,8 @@
 <!--          </svg>-->
 <!--        </div>-->
         <div class="w-full overflow-hidden">
-          <h1 class="py-2 text-xl font-semibold text-slate-200 truncate">{{ torrent.title }}</h1>
-          <h2 class="font-semibold text-xs lg:text-sm text-slate-400 uppercase">{{ torrent.info_hash }}</h2>
+          <h1 class="py-2 text-xl font-semibold text-white truncate">{{ torrent.title }}</h1>
+          <h2 class="font-semibold text-xs lg:text-sm text-white uppercase">{{ torrent.info_hash }}</h2>
 
           <div class="py-4 flex flex-col flex-col-reverse lg:flex-row">
             <div class="px-1 py-1 w-full lg:w-2/3 flex flex-col lg:flex-row flex-row bg-cod-gray-900/50 rounded-md">
@@ -80,22 +80,22 @@
         <h2 v-if="editingDescription" class="section">Markdown Preview</h2>
         <MarkdownItVue v-if="editingDescription" :content="newDescription" class="px-4 py-4 max-h-64 overflow-auto md-body max-w-none prose-sm prose-blue bg-cod-gray-900/50 rounded-md" />
         <MarkdownItVue v-if="!editingDescription && torrent.description" :content="torrent.description" class="md-body max-w-none prose-sm prose-blue" />
-        <span v-if="!editingDescription && !torrent.description" class="text-slate-400 italic">Empty</span>
+        <span v-if="!editingDescription && !torrent.description" class="text-white italic">Empty</span>
       </div>
 
       <div>
         <div class="py-3 border-b border-slate-200/5"></div>
         <h2 class="section">Torrent Files</h2>
         <div class="py-3 border-t border-slate-200/5"></div>
-        <div class="text-sm flex flex-col w-full text-slate-400 overflow-auto">
+        <div class="text-sm flex flex-col w-full text-white overflow-auto">
           <div v-for="(file, i) in groupedFiles" :key="i">- {{ file.name }} <span class="font-bold">({{ fileSize(file.length) }})</span></div>
         </div>
       </div>
     </div>
-    <h1 v-else-if="!loading" class="py-6 text-slate-600 italic">Torrent not found.<br>
+    <h1 v-else-if="!loading" class="py-6 text-white italic">Torrent not found.<br>
     This torrent was likely replaced by a newer version, try the search bar on the left.<br>
     If you have questions, let us know in #housekeeping on <u><a href="https://rpdl.net/discord">Discord</a><u>!</h1>
-    <div v-else class="flex flex-row text-slate-400 items-center" disabled>
+    <div v-else class="flex flex-row text-white items-center" disabled>
       <svg class="animate-spin h-5 w-5 mr-3 text-sky-500" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -268,31 +268,31 @@ export default {
 
 <style>
 .status {
-  @apply px-2 py-1.5 w-1/2 flex flex-row bg-cod-gray-900/50 text-slate-200 capitalize border border-transparent rounded-md text-sm uppercase;
+  @apply px-2 py-1.5 w-1/2 flex flex-row bg-cod-gray-900/50 text-white capitalize border border-transparent rounded-md text-sm uppercase;
 }
 
 .detail {
-  @apply py-2 flex flex-row text-sm text-slate-200 border-b border-slate-700;
+  @apply py-2 flex flex-row text-sm text-white border-b border-slate-700;
 }
 
 .detail > .value {
-  @apply ml-auto text-slate-400;
+  @apply ml-auto text-white;
 }
 
 h2.section {
-  @apply py-3 font-semibold text-xl text-slate-400;
+  @apply py-3 font-semibold text-xl text-white;
 }
 
 button.edit {
-  @apply px-4 py-1.5 rounded-md border border-slate-800 text-sm text-slate-400 flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200 disabled:bg-cod-gray-700 disabled:border-slate-700 disabled:text-slate-400;
+  @apply px-4 py-1.5 rounded-md border border-slate-800 text-sm text-white flex items-center relative cursor-pointer transition duration-200 hover:text-white hover:border-slate-200 disabled:bg-cod-gray-700 disabled:border-slate-700 disabled:text-white;
 }
 
 textarea.input {
-  @apply py-2 px-4 bg-cod-gray-900/50 appearance-none w-full text-slate-200 rounded-md leading-tight focus:outline-none;
+  @apply py-2 px-4 bg-cod-gray-900/50 appearance-none w-full text-white rounded-md leading-tight focus:outline-none;
 }
 
 .markdown-body {
-  @apply text-slate-400;
+  @apply text-white;
 }
 
 .markdown-body a {
@@ -300,7 +300,7 @@ textarea.input {
 }
 
 .markdown-body blockquote {
-  @apply text-slate-400 border-slate-600;
+  @apply text-white border-slate-600;
 }
 
 .markdown-body hr {
@@ -312,7 +312,7 @@ textarea.input {
 }
 
 .markdown-body .highlight pre, .markdown-body pre {
-  @apply bg-cod-gray-900 text-slate-400 rounded-md;
+  @apply bg-cod-gray-900 text-white rounded-md;
 }
 
 .markdown-body table tr, .markdown-body table td, .markdown-body table th {

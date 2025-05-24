@@ -1,7 +1,7 @@
 <template>
   <div class="relative inline-block text-left" v-click-outside="() => (dropdownOpened = false)">
 
-    <button v-if="$store.getters.isLoggedIn" class="px-4 py-1.5 rounded-md border border-slate-800 text-sm text-slate-400 flex items-center relative cursor-pointer transition duration-200 hover:text-slate-200 hover:border-slate-200" @click="dropdownOpened = !dropdownOpened">
+    <button v-if="$store.getters.isLoggedIn" class="px-4 py-1.5 rounded-md border border-slate-800 text-sm text-white flex items-center relative cursor-pointer transition duration-200 hover:text-white hover:border-slate-200" @click="dropdownOpened = !dropdownOpened">
       <UserCircleIcon size="16" class="mr-1 opacity-50" />
       {{ user.username }}
       <ChevronDownIcon
@@ -16,7 +16,7 @@
 
     <div class="origin-top-right absolute right-0 mt-2 z-10" :class="{hidden: !dropdownOpened}">
       <div @click.prevent="() => (dropdownOpened = false)" class="py-2 px-2 w-48 flex flex-col bg-cod-gray-900 text-sm rounded-md shadow-lg">
-        <router-link v-if="$store.getters.isAdministrator" to="/settings" replace class="py-1.5 text-center text-slate-100 border border-transparent rounded-md transition duration-200 hover:bg-cod-gray-700 hover:border-slate-700">
+        <router-link v-if="$store.getters.isAdministrator" to="/settings" replace class="py-1.5 text-center text-white border border-transparent rounded-md transition duration-200 hover:bg-cod-gray-700 hover:border-slate-700">
           <span>Settings</span>
         </router-link>
         <hr class="my-2 border-slate-700" />

@@ -22,7 +22,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800 text-slate-400">
+            <tbody class="divide-y divide-slate-800 text-white">
               <tr
                   v-for="(torrent, index) in torrents" :key="index"
                   

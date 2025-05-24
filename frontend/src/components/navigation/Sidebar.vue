@@ -3,14 +3,14 @@
 
     <div class="py-4">
       <router-link class="block text-2xl text-white" to="/">
-        <span class="font-semibold text-slate-400 hover:text-white transition duration-200">🇺🇦 {{ $store.state.settings.website.name }}</span>
+        <span class="font-semibold text-white hover:text-white transition duration-200">🇺🇦 {{ $store.state.settings.website.name }}</span>
       </router-link>
     </div>
 
     <!-- search bar -->
     <div class="sticky top-0 py-4 -ml-0.5 pointer-events-none">
       <div class="relative pointer-events-auto">
-        <div class="w-full flex items-center text-sm text-slate-400 bg-cod-gray-900/50 rounded-md ring-1 ring-slate-900/10 py-1.5 pl-2 pr-3 transition duration-200 hover:ring-sky-400 focus:ring-sky-400">
+        <div class="w-full flex items-center text-sm text-white bg-cod-gray-900/50 rounded-md ring-1 ring-slate-900/10 py-1.5 pl-2 pr-3 transition duration-200 hover:ring-sky-400 focus:ring-sky-400">
           <svg @click="submitSearch" width="22" height="22" fill="none" aria-hidden="true" class="mr-2 flex-none cursor-pointer">
             <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
@@ -36,7 +36,7 @@
         </button>
       </li>
       <li class="mt-6">
-        <h3 class="py-2 text-slate-400 font-semibold">Categories</h3>
+        <h3 class="py-2 text-white font-semibold">Categories</h3>
         <ul>
           <li v-for="category in categories">
             <button @click="selectCategory(category.name)" :class="{ 'active': $route.name === 'Browse Torrents' && categoryFilters.indexOf(category.name) > -1 }">
@@ -47,7 +47,7 @@
         </ul>
       </li>
       <li class="mt-10">
-        <h3 class="py-2 text-slate-400 font-semibold">Resources</h3>
+        <h3 class="py-2 text-white font-semibold">Resources</h3>
         <ul>
           <li>
             <button @click="goToFullURL('https://rpdl.net/docs/faq/')">
@@ -121,7 +121,7 @@ export default {
 
 <style scoped>
 button {
-  @apply px-3 py-1.5 mb-2 w-full flex text-slate-400 border border-slate-800 rounded-md hover:text-white items-center lg:text-sm lg:leading-6;
+  @apply px-3 py-1.5 mb-2 w-full flex text-white border border-slate-800 rounded-md hover:text-white items-center lg:text-sm lg:leading-6;
 }
 
 button.active {

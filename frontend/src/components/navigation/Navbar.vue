@@ -3,7 +3,7 @@
     <div class="max-w-8xl mx-auto">
       <div class="py-4 border-b lg:border-0 border-slate-300/10">
         <div class="relative flex items-center">
-          <div class="text-2xl font-bold text-slate-100">
+          <div class="text-2xl font-bold text-white">
             {{ $route.name }}
           </div>
           <div class="relative flex items-center ml-auto">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="flex items-center p-4 border-b lg:hidden text-slate-400 border-slate-50/[0.06]">
+      <div class="flex items-center p-4 border-b lg:hidden text-white border-slate-50/[0.06]">
         <button
             @click="toggleSidebar"
             type="button"

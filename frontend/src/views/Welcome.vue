@@ -1,5 +1,5 @@
 <template>
-  <div class="text-slate-500">
+  <div class="text-white">
     <h1 class="view-title text-white">Safely download Ren'Py games, FAST.</h1>
 
     If you're new here, welcome! Here's a crash course:<br>

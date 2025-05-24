@@ -124,7 +124,7 @@ export default {
 
 <style scoped>
 label {
-  @apply text-left text-xs font-medium uppercase tracking-wider text-slate-400 hover:text-slate-200;
+  @apply text-left text-xs font-medium uppercase tracking-wider text-white hover:text-white;
 }
 
 .input {
@@ -133,7 +133,7 @@ label {
 }
 
 .markdown-body {
-  @apply text-slate-400;
+  @apply text-white;
 }
 
 .markdown-body a {
@@ -141,7 +141,7 @@ label {
 }
 
 .markdown-body blockquote {
-  @apply text-slate-400 border-slate-600;
+  @apply text-white border-slate-600;
 }
 
 .markdown-body hr {
@@ -153,7 +153,7 @@ label {
 }
 
 .markdown-body .highlight pre, .markdown-body pre {
-  @apply bg-cod-gray-900 text-slate-400 rounded-md;
+  @apply bg-cod-gray-900 text-white rounded-md;
 }
 
 .markdown-body table tr, .markdown-body table td, .markdown-body table th {
