@@ -23,7 +23,7 @@
 
         <div v-if="form.description">
           <label>Markdown Preview</label>
-          <MarkdownItVue :content="form.description" class="mt-1 px-4 py-4 max-h-64 overflow-auto md-body max-w-none prose-sm prose-blue bg-neutral-800/50 rounded-md" />
+          <MarkdownItVue :content="form.description" class="mt-1 px-4 py-4 max-h-64 overflow-auto md-body max-w-none prose-sm prose-blue bg-cod-gray-800/50 rounded-md" />
         </div>
 
         <div>
@@ -128,7 +128,7 @@ label {
 }
 
 .input {
-  @apply py-2 px-4 w-full text-white bg-neutral-800 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-neutral-800
+  @apply py-2 px-4 w-full text-white bg-cod-gray-800 border border-slate-700 rounded-md text-sm shadow-sm cursor-pointer placeholder-slate-400 hover:border-sky-500 focus:bg-neutral-800
   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition duration-200;
 }
 
@@ -145,7 +145,7 @@ label {
 }
 
 .markdown-body hr {
-  @apply bg-neutral-200/50;
+  @apply bg-cod-gray-200/50;
 }
 
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
@@ -153,10 +153,10 @@ label {
 }
 
 .markdown-body .highlight pre, .markdown-body pre {
-  @apply bg-neutral-800 text-slate-400 rounded-md;
+  @apply bg-cod-gray-800 text-slate-400 rounded-md;
 }
 
 .markdown-body table tr, .markdown-body table td, .markdown-body table th {
-  @apply bg-neutral-800 border-slate-700;
+  @apply bg-cod-gray-800 border-slate-700;
 }
 </style>

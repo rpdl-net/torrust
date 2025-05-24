@@ -5,7 +5,7 @@
       Page Size
     </button>
     <div class="origin-top-left absolute left-0 mt-2 z-10" :class="{hidden: !dropdownOpened}">
-      <div class="py-2 px-2 w-48 flex flex-col bg-neutral-800 text-sm rounded-md shadow-lg">
+      <div class="py-2 px-2 w-48 flex flex-col bg-cod-gray-800 text-sm rounded-md shadow-lg">
         <ul v-if="$route.name === 'Browse Torrents'" id="category-filters" class="">
           <li v-for="size in pageSizes"
               @click="updateSize(size)"

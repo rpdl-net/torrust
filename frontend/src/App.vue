@@ -31,6 +31,6 @@ export default {
 
 <style>
 html {
-  @apply bg-neutral-900;
+  @apply bg-cod-gray-950;
 }
 </style>
