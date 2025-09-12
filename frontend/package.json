@@ -10,7 +10,7 @@
   "dependencies": {
     "@vue-hero-icons/outline": "^1.7.2",
     "@vue-hero-icons/solid": "^1.7.2",
-    "axios": "^0.21.3",
+    "axios": "^1.12.0",
     "core-js": "^3.6.5",
     "markdown-it": "^12.3.2",
     "markdown-it-vue": "^1.1.6",
