@@ -52,10 +52,6 @@
                       class="px-3 py-2 text-sm text-white bg-red-600 rounded-md hover:shadow-lg hover:shadow-red-600/25 transition duration-200">
                 Delete Torrent
               </button>
-              <button type="button" @click="banUser(torrent.uploader)"
-                      class="ml-2 px-3 py-2 text-sm text-white bg-red-600 rounded-md hover:shadow-lg hover:shadow-red-600/25 transition duration-200">
-                Ban Uploader
-              </button>
             </div>
           </div>
         </div>
