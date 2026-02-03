@@ -46,7 +46,7 @@ rand = "0.8.5"
 
 sanitize-filename = "0.3.0"
 
-jsonwebtoken = "7.2.0"
+jsonwebtoken = "10.3.0"
 
 sha-1 = "0.9.8"
 binascii = "0.1"
