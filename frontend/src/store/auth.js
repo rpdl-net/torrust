@@ -68,6 +68,21 @@ export default {
 
             dispatch('closeAuthModal');
         },
+        async verifyToken({commit}, data) {
+            await HttpService.post('/user/token/verify', data, async (res) => {
+                const success = res.status == 200;
+
+                if (!success) {
+                    Vue.notify({
+                        title: "Authentication",
+                        text: "Your login session has expired. Please log in again",
+                        type: "info"
+                    });
+
+                    commit('logout');
+                }
+            });
+        },
         register(store, data) {
             return new Promise((resolve) => HttpService.post('/user/register', data, () => {
                 Vue.notify({
